@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengumuman Kelulusan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengumuman Kelulusan</h1>
+    <p>Masukkan NIS Anda untuk melihat hasil:</p>
+    <input type="text" id="nis" placeholder="Masukkan NIS...">
+    <br>
+    <button onclick="cekKelulusan()">Cek</button>
+    <div class="result" id="hasil"></div>
+  </div>
+
+  <script>
+    const dataKelulusan = {
+      "0085011160": "Adep Pamusi",
+      "0076841136": "Afri Yandi Wahyu Rahmat Wijaya",
+      "0077726614": "Agung Lorenza",
+      "0063009979": "Al Insan Patona",
+      "0078943772": "Aldo Ariansi",
+      "0076876734": "Aldo Dwi Andika",
+      "0079692778": "Alin Rizki Putri",
+      "0074737961": "Aliya Miranti",
+      "3074622295": "Alpin",
+      "0057380044": "Anggi Meiransa",
+      // ... lanjutkan dengan seluruh data lainnya
+    };
+
+    function cekKelulusan() {
+      const nis = document.getElementById("nis").value.trim();
+      const hasilDiv = document.getElementById("hasil");
+      if (dataKelulusan[nis]) {
+        hasilDiv.innerHTML = `<strong>Selamat!</strong> ${dataKelulusan[nis]} dinyatakan <strong>LULUS</strong>`;
+        hasilDiv.style.color = "green";
+      } else {
+        hasilDiv.innerHTML = "Maaf, NIS tidak ditemukan atau belum dinyatakan lulus.";
+        hasilDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
